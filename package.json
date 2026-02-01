@@ -10,11 +10,12 @@
     "start": "pm2 start ecosystem.config.js"
   },
   "dependencies": {
+    "axios": "^1.13.4",
+    "dotenv": "^16.6.1",
+    "node-cron": "^3.0.3",
     "stripe": "^14.0.0",
     "telegraf": "^4.15.0",
-    "node-cron": "^3.0.3",
-    "winston": "^3.11.0",
-    "dotenv": "^16.3.1"
+    "winston": "^3.11.0"
   },
   "devDependencies": {
     "jest": "^29.7.0",
