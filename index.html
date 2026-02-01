@@ -1,217 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlphaSignal - AI Financial Intelligence</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      color: white;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    header {
-      text-align: center;
-      padding: 60px 0;
-    }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-    .tagline {
-      font-size: 24px;
-      opacity: 0.9;
-      margin-bottom: 40px;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin: 60px 0;
-    }
-    .feature {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      padding: 30px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .feature h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin: 60px 0;
-    }
-    .tier {
-      background: white;
-      color: #333;
-      padding: 40px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    }
-    .tier h2 {
-      color: #667eea;
-      margin-bottom: 20px;
-    }
-    .price {
-      font-size: 48px;
-      font-weight: bold;
-      color: #764ba2;
-      margin: 20px 0;
-    }
-    .price span {
-      font-size: 20px;
-      color: #666;
-    }
-    .tier ul {
-      list-style: none;
-      margin: 30px 0;
-      text-align: left;
-    }
-    .tier li {
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
-    .tier li:before {
-      content: "✓ ";
-      color: #667eea;
-      font-weight: bold;
-    }
-    button {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border: none;
-      padding: 15px 40px;
-      font-size: 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    button:hover {
-      transform: scale(1.05);
-    }
-    .status {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      border-radius: 12px;
-      margin: 40px 0;
-      text-align: center;
-    }
-    .status-indicator {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      background: #4ade80;
-      border-radius: 50%;
-      margin-right: 10px;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      opacity: 0.8;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaSignal - AI Financial Intelligence</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .tagline {
+            font-size: 28px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .feature {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .feature h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .tier {
+            background: white;
+            color: #333;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .tier:hover {
+            transform: translateY(-10px);
+        }
+        .tier.featured {
+            border: 3px solid #667eea;
+            position: relative;
+        }
+        .tier.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .tier h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #764ba2;
+            margin: 20px 0;
+        }
+        .price span {
+            font-size: 16px;
+            color: #666;
+            font-weight: normal;
+        }
+        .tier ul {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .tier li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .tier li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .status {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .demo-section {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+        }
+        .demo-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .sample-report {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        .sentiment-positive { color: #059669; }
+        .sentiment-negative { color: #dc2626; }
+        .alert-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            opacity: 0.8;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .tagline { font-size: 20px; }
+            .price { font-size: 36px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>📊 AlphaSignal</h1>
-      <p class="tagline">AI-Powered Financial Intelligence</p>
-      <p>Automated market analysis • Contradiction detection • Real-time insights</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>📊 AlphaSignal</h1>
+            <p class="tagline">AI-Powered Financial Intelligence</p>
+            <p class="subtitle">Automated market analysis • Contradiction detection • Real-time insights</p>
+        </header>
 
-    <div class="status">
-      <span class="status-indicator"></span>
-      <strong>System Status:</strong> Operational | Last update: <span id="timestamp"></span>
+        <div class="status">
+            <span class="status-indicator"></span>
+            <strong>System Status:</strong> Operational | <span id="timestamp"></span>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔍</div>
+                <h3>Twitter Analysis</h3>
+                <p>Track sentiment from key influencers. Detect contradictions in real-time. Know when narratives shift before the market does.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📈</div>
+                <h3>Market Intelligence</h3>
+                <p>Daily briefings combining social sentiment, news analysis, and macro trends. Delivered to your inbox every morning.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Contradiction Alerts</h3>
+                <p>Get notified when influential accounts change their thesis. Catch the flip before it becomes consensus.</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎯 Sample Intelligence Report</h2>
+            <div class="sample-report">
+                <div class="report-header">
+                    <h3>Daily Market Brief - February 1, 2026</h3>
+                    <span class="sentiment-positive">↗ Bullish Bias</span>
+                </div>
+                <p><strong>Market Summary:</strong> Tech sector showing resilience with AI-related stocks leading gains. Crypto markets volatile but holding key support levels.</p>
+                
+                <div class="alert-box">
+                    <strong>⚠️ Contradiction Alert:</strong> @chamath shifted from bearish to cautiously optimistic on tech valuations within 48 hours.
+                </div>
+
+                <p><strong>Key Findings:</strong></p>
+                <ul>
+                    <li>Bitcoin holding above $80k support - institutional buying detected</li>
+                    <li>Tesla sentiment up 23% post-AI day announcements</li>
+                    <li>Fed policy expectations shifting - rate cut chatter increasing</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="pricing">
+            <div class="tier">
+                <h2>Free</h2>
+                <div class="price">$0<span>/month</span></div>
+                <ul>
+                    <li>Weekly market digest</li>
+                    <li>Basic Twitter sentiment</li>
+                    <li>Public contradiction reports</li>
+                    <li>Community access</li>
+                </ul>
+                <button onclick="showSignup('free')">Get Started</button>
+            </div>
+            
+            <div class="tier featured">
+                <h2>Pro</h2>
+                <div class="price">$49<span>/month</span></div>
+                <ul>
+                    <li>Daily market briefings</li>
+                    <li>Real-time contradiction alerts</li>
+                    <li>Custom watchlist monitoring</li>
+                    <li>Priority support</li>
+                    <li>Email delivery</li>
+                </ul>
+                <button onclick="showSignup('pro')">Subscribe Now</button>
+            </div>
+            
+            <div class="tier">
+                <h2>Elite</h2>
+                <div class="price">$199<span>/month</span></div>
+                <ul>
+                    <li>Real-time alerts (no delay)</li>
+                    <li>Custom research requests</li>
+                    <li>Weekly 1:1 consultations</li>
+                    <li>API access</li>
+                    <li>White-label reports</li>
+                </ul>
+                <button onclick="showSignup('elite')">Subscribe</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with AI • Powered by OpenClaw • Deployed on Vercel</p>
+            <div class="social-links">
+                <a href="https://github.com/opnclaw/alphasignal">GitHub</a>
+                <a href="mailto:opnclaw@gmail.com">Contact</a>
+                <a href="#" onclick="showWaitlist()">Join Waitlist</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 14px; opacity: 0.6;">
+                © 2026 AlphaSignal. All rights reserved.
+            </p>
+        </footer>
     </div>
 
-    <div class="features">
-      <div class="feature">
-        <h3>🔍 Twitter Analysis</h3>
-        <p>Track sentiment from key influencers. Detect contradictions in real-time. Know when narratives shift before the market does.</p>
-      </div>
-      <div class="feature">
-        <h3>📈 Market Intelligence</h3>
-        <p>Daily briefings combining social sentiment, news analysis, and macro trends. Delivered to your inbox every morning.</p>
-      </div>
-      <div class="feature">
-        <h3>⚡ Contradiction Alerts</h3>
-        <p>Get notified when influential accounts change their thesis. Catch the flip before it becomes consensus.</p>
-      </div>
-    </div>
+    <script>
+        // Update timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('timestamp').textContent = now.toLocaleString();
+        }
+        updateTimestamp();
+        setInterval(updateTimestamp, 60000);
 
-    <div class="pricing">
-      <div class="tier">
-        <h2>Free</h2>
-        <div class="price">$0<span>/month</span></div>
-        <ul>
-          <li>Weekly market digest</li>
-          <li>Basic Twitter sentiment</li>
-          <li>Public contradiction reports</li>
-          <li>Community access</li>
-        </ul>
-        <button onclick="alert('Coming soon! Join the waitlist.')">Get Started</button>
-      </div>
-      
-      <div class="tier">
-        <h2>Pro</h2>
-        <div class="price">$49<span>/month</span></div>
-        <ul>
-          <li>Daily market briefings</li>
-          <li>Real-time contradiction alerts</li>
-          <li>Custom watchlist monitoring</li>
-          <li>Priority support</li>
-        </ul>
-        <button onclick="alert('Coming soon! Join the waitlist.')">Subscribe</button>
-      </div>
-      
-      <div class="tier">
-        <h2>Elite</h2>
-        <div class="price">$199<span>/month</span></div>
-        <ul>
-          <li>Real-time alerts (no delay)</li>
-          <li>Custom research requests</li>
-          <li>Weekly 1:1 consultations</li>
-          <li>API access</li>
-        </ul>
-        <button onclick="alert('Coming soon! Join the waitlist.')">Subscribe</button>
-      </div>
-    </div>
+        // Signup functions
+        function showSignup(tier) {
+            alert(`🚀 ${tier.charAt(0).toUpperCase() + tier.slice(1)} tier selected!\n\nComing soon - join the waitlist to be first to access ${tier} features.`);
+        }
 
-    <footer>
-      <p>Built with AI • Powered by OpenClaw • Deployed on Vercel</p>
-      <p style="margin-top: 20px; font-size: 14px;">
-        <a href="https://github.com/opnclaw/alphasignal" style="color: white;">GitHub</a> • 
-        <a href="mailto:opnclaw@gmail.com" style="color: white;">Contact</a>
-      </p>
-    </footer>
-  </div>
+        function showWaitlist() {
+            const email = prompt('Enter your email to join the waitlist:');
+            if (email) {
+                alert(`✅ Thanks! We'll notify ${email} when AlphaSignal launches.`);
+            }
+        }
 
-  <script>
-    document.getElementById('timestamp').textContent = new Date().toLocaleString();
-    
-    // Simulate live data
-    setInterval(() => {
-      document.getElementById('timestamp').textContent = new Date().toLocaleString();
-    }, 60000);
-  </script>
+        // Simulate live data updates
+        setInterval(() => {
+            const indicators = document.querySelectorAll('.status-indicator');
+            indicators.forEach(ind => {
+                ind.style.animation = 'none';
+                setTimeout(() => ind.style.animation = 'pulse 2s infinite', 10);
+            });
+        }, 5000);
+    </script>
 </body>
 </html>
