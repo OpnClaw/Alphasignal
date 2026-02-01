@@ -1,0 +1,72 @@
+{
+  "jobs": [
+    {
+      "name": "Daily Market Brief",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * 1-5",
+        "tz": "Asia/Dubai"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Generate and deliver the AlphaSignal daily market brief to all subscribers",
+        "model": "opencode/kimi-k2.5-free",
+        "thinking": "low",
+        "deliver": true
+      },
+      "sessionTarget": "isolated",
+      "enabled": true
+    },
+    {
+      "name": "Weekly Deep Dive",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 0",
+        "tz": "Asia/Dubai"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Generate and deliver the AlphaSignal weekly deep dive report",
+        "model": "opencode/kimi-k2.5-free",
+        "thinking": "medium",
+        "deliver": true
+      },
+      "sessionTarget": "isolated",
+      "enabled": true
+    },
+    {
+      "name": "Contradiction Checker",
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/30 * * * 1-5",
+        "tz": "Asia/Dubai"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Check for contradictions in tracked Twitter accounts and send alerts to Elite subscribers",
+        "model": "opencode/kimi-k2.5-free",
+        "thinking": "low",
+        "deliver": true
+      },
+      "sessionTarget": "isolated",
+      "enabled": true
+    },
+    {
+      "name": "Session Backup",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 2 * * *",
+        "tz": "Asia/Dubai"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Backup AlphaSignal subscriber data and reports",
+        "model": "opencode/kimi-k2.5-free",
+        "thinking": "off",
+        "deliver": false
+      },
+      "sessionTarget": "isolated",
+      "enabled": true
+    }
+  ]
+}
